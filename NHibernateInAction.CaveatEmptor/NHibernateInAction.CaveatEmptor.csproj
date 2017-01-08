@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{397FD0C5-3224-471C-941E-884049EF689C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NHibernateInAction.CaveatEmptor</RootNamespace>
+    <AssemblyName>NHibernateInAction.CaveatEmptor</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentNHibernate, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentNHibernate.2.0.3.0\lib\net40\FluentNHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHibernate.Mapping.Attributes, Version=4.0.0.1, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.Mapping.Attributes.4.0.0.1\lib\net40\NHibernate.Mapping.Attributes.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.5.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.5.0\lib\net45\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dao\CategoryDAO.cs" />
+    <Compile Include="Dao\CommentDAO.cs" />
+    <Compile Include="Dao\DAO.cs" />
+    <Compile Include="Dao\ItemDAO.cs" />
+    <Compile Include="Dao\UserDAO.cs" />
+    <Compile Include="Exceptions\BusinessException.cs" />
+    <Compile Include="Exceptions\InfrastructureException.cs" />
+    <Compile Include="Exceptions\PermissionException.cs" />
+    <Compile Include="Model\Address.cs" />
+    <Compile Include="Model\BankAccount.cs" />
+    <Compile Include="Model\Bid.cs" />
+    <Compile Include="Model\BillingDetails.cs" />
+    <Compile Include="Model\CategorizedItem.cs" />
+    <Compile Include="Model\Category.cs" />
+    <Compile Include="Model\Comment.cs" />
+    <Compile Include="Model\CreditCard.cs" />
+    <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\CustomerLocation.cs" />
+    <Compile Include="Model\Enums.cs" />
+    <Compile Include="Model\IAuditable.cs" />
+    <Compile Include="Model\Item.cs" />
+    <Compile Include="Model\MonetaryAmount.cs" />
+    <Compile Include="Model\SystemTime.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\UserId.cs" />
+    <Compile Include="Persistence\Audit\AuditableAttribute.cs" />
+    <Compile Include="Persistence\Audit\AuditLog.cs" />
+    <Compile Include="Persistence\Audit\AuditLogInterceptor.cs" />
+    <Compile Include="Persistence\Audit\AuditLogRecord.cs" />
+    <Compile Include="Persistence\Audit\LogType.cs" />
+    <Compile Include="Persistence\CENamingStrategy.cs" />
+    <Compile Include="Persistence\MonetaryAmountCompositeUserType.cs" />
+    <Compile Include="Persistence\MonetaryAmountSimpleUserType.cs" />
+    <Compile Include="Persistence\NHibernateHelper.cs" />
+    <Compile Include="Persistence\NHibernateHelperSimple.cs" />
+    <Compile Include="Persistence\NHibernateHelper_EntSrvs.cs" />
+    <Compile Include="Persistence\NHibernateHelper_Thread.cs" />
+    <Compile Include="Persistence\NHibernateHelper_ThreadAndHttpContext.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Test\AllClassesSaveLoadFixture.cs" />
+    <Compile Include="Test\AuditLogFixure.cs" />
+    <Compile Include="Test\CategorizedItemFixture.cs" />
+    <Compile Include="Test\ItemFixture.cs" />
+    <Compile Include="Test\Utility\TestDataFixture.cs" />
+    <Compile Include="Test\Utility\TestFixtureBase.cs" />
+    <Compile Include="Test\Utility\TestFixtureWithSampleDataBase.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="hibernate.cfg.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ItemQueries.hbm.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Mapping.hbm.xml" />
+    <Content Include="Persistence\Audit\AuditLogRecord.hbm.xml" />
+    <Content Include="_README.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
