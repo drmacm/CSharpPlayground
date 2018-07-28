@@ -9,10 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "General", "General\General.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernateSandbox", "NHibernateSandbox\NHibernateSandbox.csproj", "{F1B40BC3-6528-42AD-BFD3-7C25DF56FD2D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NServiceBusSandbox", "NServiceBusSandbox\NServiceBusSandbox.csproj", "{CE91210B-8733-4DB1-B3DD-8BCA28014225}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernateInAction.CaveatEmptor", "NHibernateInAction.CaveatEmptor\NHibernateInAction.CaveatEmptor.csproj", "{397FD0C5-3224-471C-941E-884049EF689C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,14 +27,6 @@ Global
 		{F1B40BC3-6528-42AD-BFD3-7C25DF56FD2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1B40BC3-6528-42AD-BFD3-7C25DF56FD2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1B40BC3-6528-42AD-BFD3-7C25DF56FD2D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CE91210B-8733-4DB1-B3DD-8BCA28014225}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CE91210B-8733-4DB1-B3DD-8BCA28014225}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CE91210B-8733-4DB1-B3DD-8BCA28014225}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CE91210B-8733-4DB1-B3DD-8BCA28014225}.Release|Any CPU.Build.0 = Release|Any CPU
-		{397FD0C5-3224-471C-941E-884049EF689C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{397FD0C5-3224-471C-941E-884049EF689C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{397FD0C5-3224-471C-941E-884049EF689C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{397FD0C5-3224-471C-941E-884049EF689C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
