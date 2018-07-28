@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernateSandbox", "NHiber
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Threading", "Threading", "{E57CA2F8-D100-492C-8099-7243DEB2B884}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadPool", "ThreadPool\ThreadPool.csproj", "{5164AE77-A7FF-4D48-ABE9-245C1A4902A1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadPool", "Threading\ThreadPool\ThreadPool.csproj", "{5164AE77-A7FF-4D48-ABE9-245C1A4902A1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Threading\Common\Common.csproj", "{58F08E5E-1E4F-483D-BCE4-B72002E8A820}"
 EndProject

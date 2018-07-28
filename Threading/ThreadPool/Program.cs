@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace Threading.ThreadPool
 {
@@ -6,27 +7,18 @@ namespace Threading.ThreadPool
     {
         static void Main(string[] args)
         {
-           if (args.Length == 0) 
-            {
-                Console.WriteLine("Manual thread creation:");
-                Console.WriteLine("1. Background worker thread doesn't finish work.");
-                Console.WriteLine("2. Foreground worker thread finishes after main thread (no join).");
-                Console.WriteLine("3. Foreground worker thread finishes before main thread (join).");
-                return;
-            }
-            switch(args[0])
-            {
-                case "1":
-                    ThreadPoolThreadCreation.BackgroundThreadWithoutJoin();
-                    break;
-                case "2":
-                    ThreadPoolThreadCreation.ForegroundThreadWithoutJoin();
-                    break;
-                case "3":
-                    ThreadPoolThreadCreation.ForegroundThreadWithJoin();
-                    break;
-                
-            }
+            Console.WriteLine("Example: Queueing a method on thread pool");
+            ThreadPoolThreadCreation.QueueUserWorkItem();
+            Thread.Sleep(3000);
+            Console.WriteLine("Example: Queueing a cancellable method on thread pool and cancelling it");
+            ThreadPoolThreadCreation.QueueUserWorkItemAndCancelIt();
+            Thread.Sleep(3000);
+            Console.WriteLine("Example: Register() callback throwing exception, not using aggregation");
+            ThreadPoolThreadCreation.CancellationTokenCallbackThrowingExceptionsWithoutAggregation();
+            Thread.Sleep(3000);
+            Console.WriteLine("Example: Register() callback throwing exception, using aggregation");
+            ThreadPoolThreadCreation.CancellationTokenCallbackThrowingExceptionsWithAggregation();
+            Console.ReadKey();
         }
     }
 }
