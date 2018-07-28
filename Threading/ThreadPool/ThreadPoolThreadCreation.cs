@@ -43,6 +43,24 @@ namespace Threading.ThreadPool
             ThreadLogger.Log("main end");
         }
 
+        public static void LinkedCancellationTokens()
+        {
+            ThreadLogger.Log("main start");
+
+            var cts1 = new CancellationTokenSource();
+            cts1.Token.Register(() => ThreadLogger.Log("cts1 cancelled"));
+            var cts2 = new CancellationTokenSource();
+            cts2.Token.Register(() => ThreadLogger.Log("cts2 cancelled"));
+            var cts = CancellationTokenSource.CreateLinkedTokenSource(cts1.Token, cts2.Token);
+            cts.Token.Register(() => ThreadLogger.Log("linked cts cancelled"));
+
+            System.Threading.ThreadPool.QueueUserWorkItem(x => IntensiveOperationsService.CancellableLoop(cts.Token));
+
+            Thread.Sleep(3000);
+            cts2.Cancel();
+            ThreadLogger.Log("main end");
+        }
+
         public static void CancellationTokenCallbackThrowingExceptionsWithoutAggregation()
         {
             ThreadLogger.Log("main start");
