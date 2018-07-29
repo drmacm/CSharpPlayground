@@ -10,12 +10,21 @@ namespace Tasks
     {
         public static void SimpleTaskCreation()
         {
+            //Create and schedule a task via static method
             var task1 = Task.Run(() => IntensiveOperationsService.CancellableSleepingSum(1, 2));
+
+            //Create a new task instance and schedule it via .Start() method
             var task2 = new Task<int>(n => IntensiveOperationsService.CancellableSleepingSum(2, (int)n), 2);
             task2.Start();
 
+            //Create a task factory and use .StartNew() method to create and schedule a task
+            TaskFactory tf = new TaskFactory(/*Various options for all tasks created via this factory*/);
+            var task3 = tf.StartNew(() => IntensiveOperationsService.CancellableSleepingSum(3, 2));
+
+
             ThreadLogger.Log($"Task 1: {task1.Result}");
             ThreadLogger.Log($"Task 2: {task2.Result}");
+            ThreadLogger.Log($"Task 3: {task3.Result}");
         }
 
         public static void WaitAnyAndWaitAll()
@@ -54,6 +63,27 @@ namespace Tasks
             task3.Wait();
         }
 
+        public static void TaskAndChildTasks()
+        {
+            var parent = new Task<int[]>(() =>
+            {
+                var results = new int[3];
+
+                new Task(() => results[0] = IntensiveOperationsService.CancellableSleepingSum(1, 1), TaskCreationOptions.AttachedToParent).Start();
+                new Task(() => results[1] = IntensiveOperationsService.CancellableSleepingSum(2, 2), TaskCreationOptions.AttachedToParent).Start();
+                new Task(() => results[2] = IntensiveOperationsService.CancellableSleepingSum(3, 3), TaskCreationOptions.AttachedToParent).Start();
+
+                return results;
+            });
+
+            parent.ContinueWith(x => ThreadLogger.Log($"Sum of all results: {x.Result.Sum()}"));
+
+            ThreadLogger.Log("Starting parrent task");
+            parent.Start();
+            //Needed to avoid mixing with other examples
+            parent.Wait();
+
+        }
         public static void TaskThrowsExceptionWhichIsNotObserved()
         {
             //Adding an event handler for unobserved exceptions

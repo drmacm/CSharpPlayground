@@ -22,6 +22,10 @@ namespace Tasks
             Console.WriteLine("Example: Task continuations");
             TaskCreation.TaskContinuations();
             Thread.Sleep(3000);
+            Console.WriteLine(Environment.NewLine);
+            Console.WriteLine("Example: Task and child tasks");
+            TaskCreation.TaskAndChildTasks();
+            Thread.Sleep(3000);
 
             Console.WriteLine(Environment.NewLine);
             Console.WriteLine("Example: Unobserved exceptions caught by event handler");
